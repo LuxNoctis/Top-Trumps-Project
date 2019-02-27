@@ -47,7 +47,7 @@ def create_cards():
 
 # generates random card for user
 def draw_card():
-    print("Your Card:")
+    print("Here is your Card:")
     cardNumber = random.randint(0,len(character_cards)-1)
     print("---> Name: " + character_cards[cardNumber][0])
     print("---> Power: " + str(character_cards[cardNumber][1]))
@@ -58,7 +58,13 @@ def draw_card():
 # main function
 def main():
     intro_message()
-    create_cards()
-    draw_card()   
+
+    start = input("Would you like to start a new game?").lower()
+    if start == ("yes"):
+        create_cards()
+        draw_card()
+    else:
+        print("Sorry, I didn't understand that.")
+    
 
 main()
