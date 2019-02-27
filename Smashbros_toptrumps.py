@@ -1,4 +1,4 @@
-import random # gets ra
+import random # gets random directory
 character_names = []
 
 # reads the names from the text file
