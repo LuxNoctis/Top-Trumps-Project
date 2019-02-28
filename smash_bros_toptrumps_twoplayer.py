@@ -38,21 +38,23 @@ def create_cards():
         player_2_cards.append([character_names[random.randint(0,15)],random.randint(0,10),random.randint(0,10),random.randint(0,10),random.randint(0,10)])
 
 def draw_player_1():
+    global p1_name
     global p1_power
     global p1_agility
     global p1_grab
     global p1_taunt
     cardNumber = random.randint(0,len(player_1_cards)-1)
 
-    name = player_1_cards[cardNumber][0]
+    p1_name = player_1_cards[cardNumber][0]
     p1_power = player_1_cards[cardNumber][1]
     p1_agility = player_1_cards[cardNumber][2]
     p1_grab = player_1_cards[cardNumber][3]
     p1_taunt = player_1_cards[cardNumber][4]
 
+def display_p1():
     print("Here is Player 1's card:")
     print("........................")
-    print("---> Name: " + name)
+    print("---> Name: " + p1_name)
     print("---> Power: " + str(p1_power))
     print("---> Agility: " + str(p1_agility))
     print("---> Grab & Throw: " + str(p1_grab))
@@ -61,22 +63,23 @@ def draw_player_1():
     print(" ")
 
 def draw_player_2():
+    global p2_name
     global p2_power
     global p2_agility
     global p2_grab
     global p2_taunt
     cardNumber = random.randint(0,len(player_2_cards)-1)
 
-    name = player_2_cards[cardNumber][0]
+    p2_name = player_2_cards[cardNumber][0]
     p2_power = player_2_cards[cardNumber][1]
     p2_agility = player_2_cards[cardNumber][2]
     p2_grab = player_2_cards[cardNumber][3]
     p2_taunt = player_2_cards[cardNumber][4]
 
-
+def display_p2():
     print("Here is Player 2's card:")
     print("........................")
-    print("---> Name: " + name)
+    print("---> Name: " + p2_name)
     print("---> Power: " + str(p2_power))
     print("---> Agility: " + str(p2_agility))
     print("---> Grab & Throw: " + str(p2_grab))
@@ -102,6 +105,8 @@ def game():
         print("Player 1's Turn")
         print(" ")
         draw_player_1()
+        display_p1()
+
         draw_player_2()
 
         turn_1 = input("What attribute would you like to call out, Player One?")
@@ -176,6 +181,7 @@ def game():
         print(" ")
         draw_player_1()
         draw_player_2()
+        display_p2()
 
         turn_2 = input("What attribute would you like to call out, Player Two?")
         if turn_2 == "power":
@@ -245,11 +251,11 @@ def game():
             print("I didn't understand that.")
 
         if p1_card_count == 0:
-            print("Congratulations, Player 2 wins.")
+            print("Player 2 wins.")
             exit()
             
         elif p2_card_count == 0:
-            print("Congratulations, Player 1 wins.")
+            print("Player 1 wins.")
             exit()
 
 # main function
