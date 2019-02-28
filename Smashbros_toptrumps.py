@@ -26,7 +26,6 @@ def intro_message():
 
 # cards directory 
 character_cards = []
-
 def create_cards():
     character_cards.append([character_names[0],random.randint(0,10),random.randint(0,10),random.randint(0,10),random.randint(0,10)])
     character_cards.append([character_names[1],random.randint(0,10),random.randint(0,10),random.randint(0,10),random.randint(0,10)])   
@@ -46,12 +45,12 @@ def create_cards():
 
 # the main game function
 def game(): 
-    create_cards()
+    create_cards() # creates the fully random cards
 
-    cpu_card_count = 10
-    player_card_count = 10
+    cpu_card_count = 10 # The amount of cards the CPu starts off with
+    player_card_count = 10 # The amount of cards the player starts off with
 
-    def draw_player_card():
+    def draw_player_card(): # function for the cpu drawing a random card
         global power
         global agility
         global grab
@@ -70,7 +69,7 @@ def game():
         print("---> Grab & Throw: " + str(grab))
         print("---> Taunt: " + str(taunt))
 
-    def cpu_draw_card():
+    def cpu_draw_card(): # function for the cpu drawing a random card
         global cpu_power
         global cpu_agility
         global cpu_grab
@@ -88,12 +87,14 @@ def game():
         print(">>> New Round <<<")
         print(".................")
         print(" ")
-        print("Here is your card.")
+        
+        print("Here is your card.") # draws a card for both player and cpu
         draw_player_card()
         cpu_draw_card()
 
         turn = input("What attribute would you like to call out?")
-        if turn == "power":
+        
+        if turn == "power": # power option
             if power > cpu_power:
                 print("You win this round.")
                 player_card_count += 1
@@ -107,7 +108,7 @@ def game():
                 print("You now have " + str(player_card_count) + " cards")
                 
 
-        elif turn == "agility":
+        elif turn == "agility": # agility option
             if agility > cpu_agility:
                 print("You win this round.")
                 player_card_count += 1
@@ -121,7 +122,7 @@ def game():
                 print("You now have " + str(player_card_count) + " cards")
                 
 
-        elif turn == "taunt":
+        elif turn == "taunt": # taunt option
             if taunt > cpu_taunt:
                 print("You win this round.")
                 player_card_count += 1
@@ -135,7 +136,7 @@ def game():
                 print("You now have " + str(player_card_count) + " cards")
                 
         
-        elif turn == "grab":
+        elif turn == "grab": # grab option
             if grab > cpu_grab:
                 print("You win this round.")
                 player_card_count += 1
@@ -149,10 +150,10 @@ def game():
                 print("You now have " + str(player_card_count) + " cards")
                 
     
-        else:
+        else: # if the player entered anything but the accepted responses
             print("I didn't understand that.")
 
-        if player_card_count == 20:
+        if player_card_count == 20: #player wins
             print("Congratulations, you win.")
             play_again = input("Would you like to play again?").lower()
             if play_again == "yes":
@@ -160,7 +161,7 @@ def game():
             else:
                 exit()
     
-        elif cpu_card_count == 20:
+        elif cpu_card_count == 20: #cpu wins
             print("Unfortunately, you lose.")
             play_again = input("Would you like to play again?").lower()
             if play_again == "yes":
@@ -174,10 +175,10 @@ def main():
 
     start = input("Would you like to start a new game?").lower()
     if start == ("yes"):
-        game()
+        game() # starts game function
     else:
         print("Sorry, I didn't understand that.")
-        exit()
+        exit() # closes program
     
 # starts the program
 main()
