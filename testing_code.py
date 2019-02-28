@@ -13,9 +13,8 @@ with open('Character-names.txt', 'r') as filehandle:
 r_number = random.randint(0,10)
 
 cards = {character_names[0]: [r_number, r_number, r_number, r_number], character_names[1]: [r_number, r_number, r_number, r_number], character_names[2]: [r_number, r_number, r_number, r_number], character_names[3]: [r_number, r_number, r_number, r_number], character_names[4]: [r_number, r_number, r_number, r_number], character_names[4]: [r_number, r_number, r_number, r_number], character_names[5]: [r_number, r_number, r_number, r_number], character_names[6]: [r_number, r_number, r_number, r_number], character_names[7]: [r_number, r_number, r_number, r_number], character_names[8]: [r_number, r_number, r_number, r_number], character_names[9]: [r_number, r_number, r_number, r_number], character_names[10]: [r_number, r_number, r_number, r_number], character_names[11]: [r_number, r_number, r_number, r_number], character_names[12]: [r_number, r_number, r_number, r_number], character_names[13]: [r_number, r_number, r_number, r_number], character_names[14]: [r_number, r_number, r_number, r_number], character_names[15]: [r_number, r_number, r_number, r_number]         
-player = {name: cards[name] for name in random.sample(cards.keys(), len(cards) // 2)}
-computer = {name: cards[name] for name in cards.keys() - player.keys()}
-so that:
+player_one = {name: cards[name] for name in random.sample(cards.keys(), len(cards) // 2)}
+player_two = {name: cards[name] for name in cards.keys() - player.keys()}
 
 print(player)
 print(computer)
