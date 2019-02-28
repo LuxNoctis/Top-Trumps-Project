@@ -82,6 +82,11 @@ def game():
 
     while player_card_count or cpu_card_count < 20:
 
+        print(" ")
+        print(".................")
+        print(">>> New Round <<<")
+        print(".................")
+        print(" ")
         print("Here is your card.")
         draw_player_card()
         cpu_draw_card()
@@ -147,7 +152,6 @@ def game():
             print("I didn't understand that.")
 
         if player_card_count == 20:
-            break
             print("Congratulations, you win.")
             play_again = input("Would you like to play again?").lower()
             if play_again == "yes":
@@ -156,7 +160,6 @@ def game():
                 exit()
     
         elif cpu_card_count == 20:
-            break
             print("Unfortunately, you lose.")
             play_again = input("Would you like to play again?").lower()
             if play_again == "yes":
