@@ -46,7 +46,8 @@ def create_cards():
 
 # the main game function
 def game(): 
-    
+    create_cards()
+
     cpu_card_count = 10
     player_card_count = 10
 
@@ -173,7 +174,6 @@ def main():
 
     start = input("Would you like to start a new game?").lower()
     if start == ("yes"):
-        create_cards()
         game()
     else:
         print("Sorry, I didn't understand that.")
